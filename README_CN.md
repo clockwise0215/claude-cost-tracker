@@ -51,6 +51,8 @@ python install.py        # macOS/Linux 也可用 python3
 
 浏览器会打开一个看板，包含：
 
+> **注意**：看板是静态 HTML 快照。要查看最新数据，请重新运行 `/token-dash` 来刷新。
+
 | 模块 | 内容 |
 |------|------|
 | **总览卡片** | 总 token 数、总费用、各类型 token 费用（Input / Output / Cache Read / Cache Creation） |

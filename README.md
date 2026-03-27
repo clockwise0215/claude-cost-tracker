@@ -51,6 +51,8 @@ In Claude Code, type:
 
 A dashboard opens in your browser with:
 
+> **Note**: The dashboard is a static HTML snapshot. To see the latest data, run `/token-dash` again to regenerate it.
+
 | Section | What it shows |
 |---------|---------------|
 | **Overview cards** | Total tokens, total cost, per-type cost (Input / Output / Cache Read / Cache Creation) |
