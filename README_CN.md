@@ -62,7 +62,7 @@ python install.py        # macOS/Linux 也可用 python3
 | **项目排行** | 按费用排序的表格，含会话数 |
 
 <details>
-<summary>更多看板截图</summary>
+<summary>📊 更多看板截图（点击展开）</summary>
 
 #### 月度费用 & 模型分布
 ![月度和模型](assets/dashboard-monthly.jpg)

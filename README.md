@@ -62,7 +62,7 @@ A dashboard opens in your browser with:
 | **Project ranking** | Table sorted by cost, with session count |
 
 <details>
-<summary>More dashboard screenshots</summary>
+<summary>📊 More dashboard screenshots (click to expand)</summary>
 
 #### Monthly Cost & Model Distribution
 ![Monthly and Model](assets/dashboard-monthly.jpg)
