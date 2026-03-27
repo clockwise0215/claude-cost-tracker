@@ -9,7 +9,6 @@ Claude Code token usage tracker with dashboard visualization.
 - `src/import_history.py` — Bulk imports historical transcript data
 - `src/pricing.json` — Model pricing rates (USD per million tokens)
 - `commands/token-dash.md` — Slash command to open dashboard
-- `commands/token-cost.md` — Slash command for terminal summary
 - `install.py` — Cross-platform installer (also supports `--uninstall`)
 
 ## Key Design Decisions

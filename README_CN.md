@@ -75,14 +75,6 @@ python install.py        # macOS/Linux 也可用 python3
 
 </details>
 
-### 终端快速查看
-
-```
-/token-cost
-```
-
-直接在终端输出本月的模型和项目消耗摘要。
-
 ### 直接查询数据库
 
 ```bash

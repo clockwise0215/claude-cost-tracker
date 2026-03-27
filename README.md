@@ -75,14 +75,6 @@ A dashboard opens in your browser with:
 
 </details>
 
-### Quick terminal check
-
-```
-/token-cost
-```
-
-Prints this month's usage by model and project directly in the terminal.
-
 ### Direct SQL query
 
 ```bash

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Claude Token Dash — cross-platform installer.
+"""Claude Cost Tracker — cross-platform installer.
 
 Usage:
     python install.py          # Install
@@ -39,7 +39,7 @@ def find_python_command():
 
 def install():
     python_cmd = find_python_command()
-    print("=== Claude Token Dash Installer ===")
+    print("=== Claude Cost Tracker Installer ===")
     print(f"Platform: {platform.system()}")
     print(f"Python:   {python_cmd}")
     print()
@@ -49,23 +49,32 @@ def install():
     COMMANDS_DIR.mkdir(parents=True, exist_ok=True)
 
     # Copy hook scripts
-    print("[1/5] Installing hook scripts...")
+    print("[1/6] Installing hook scripts...")
     src_dir = SCRIPT_DIR / "src"
     for f in ["track_tokens.py", "dashboard.py", "import_history.py", "pricing.json"]:
         shutil.copy2(src_dir / f, HOOKS_DIR / f)
     print(f"  -> {HOOKS_DIR}")
 
     # Copy and patch slash commands (replace python3 with detected command)
-    print("[2/5] Installing slash commands...")
-    for f in ["token-dash.md", "token-cost.md"]:
+    print("[2/6] Installing slash commands...")
+    for f in ["token-dash.md"]:
         src = SCRIPT_DIR / "commands" / f
         content = src.read_text(encoding="utf-8")
         content = content.replace("python3 ", f"{python_cmd} ")
         (COMMANDS_DIR / f).write_text(content, encoding="utf-8")
     print(f"  -> {COMMANDS_DIR}")
 
+    # Clean up deprecated token-cost.md (consumes tokens, removed in v2)
+    print("[3/6] Cleaning up deprecated files...")
+    old_token_cost = COMMANDS_DIR / "token-cost.md"
+    if old_token_cost.exists():
+        old_token_cost.unlink()
+        print("  Removed deprecated token-cost.md (it consumed tokens)")
+    else:
+        print("  Nothing to clean up")
+
     # Configure settings.json
-    print("[3/5] Configuring Stop hook...")
+    print("[4/6] Configuring Stop hook...")
     if not SETTINGS_FILE.exists():
         SETTINGS_FILE.write_text("{}", encoding="utf-8")
 
@@ -103,18 +112,17 @@ def install():
     SETTINGS_FILE.write_text(json.dumps(settings, indent=2, ensure_ascii=False), encoding="utf-8")
 
     # Import history
-    print("[4/5] Importing historical data...")
+    print("[5/6] Importing historical data...")
     subprocess.run([python_cmd, str(HOOKS_DIR / "import_history.py")])
 
     # Done
     print()
-    print("[5/5] Verifying installation...")
+    print("[6/6] Verifying installation...")
     checks = [
         (HOOKS_DIR / "track_tokens.py", "track_tokens.py"),
         (HOOKS_DIR / "dashboard.py", "dashboard.py"),
         (HOOKS_DIR / "pricing.json", "pricing.json"),
         (COMMANDS_DIR / "token-dash.md", "token-dash.md"),
-        (COMMANDS_DIR / "token-cost.md", "token-cost.md"),
     ]
     all_ok = True
     for path, name in checks:
@@ -134,12 +142,11 @@ def install():
     print("Usage:")
     print("  Token tracking is now automatic (runs on every Claude Code turn)")
     print("  In Claude Code, type /token-dash to open the dashboard")
-    print("  In Claude Code, type /token-cost for a quick terminal summary")
     print(f"  Or run: {python_cmd} {HOOKS_DIR / 'dashboard.py'}")
 
 
 def uninstall():
-    print("=== Claude Token Dash Uninstaller ===")
+    print("=== Claude Cost Tracker Uninstaller ===")
     print()
 
     # Remove hook scripts
@@ -152,7 +159,7 @@ def uninstall():
 
     # Remove slash commands
     print("[2/3] Removing slash commands...")
-    for f in ["token-dash.md", "token-cost.md"]:
+    for f in ["token-dash.md", "token-cost.md"]:  # also clean up deprecated token-cost
         p = COMMANDS_DIR / f
         if p.exists():
             p.unlink()
