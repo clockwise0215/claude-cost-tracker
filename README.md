@@ -6,6 +6,8 @@
 
 Claude Code's `/cost` only shows the current session — once you close the window, that data is gone. **Claude Cost Tracker** automatically records every token across all your sessions and projects, then gives you a beautiful dashboard to see the full picture.
 
+![Dashboard Overview](assets/dashboard-overview.jpg)
+
 ## Why?
 
 - You're on Claude Max / API and want to know your **actual usage patterns**
@@ -58,6 +60,20 @@ A dashboard opens in your browser with:
 | **Model distribution** | Doughnut chart — Opus vs Sonnet vs Haiku |
 | **Cost by token type** | Doughnut chart — where the money goes |
 | **Project ranking** | Table sorted by cost, with session count |
+
+<details>
+<summary>More dashboard screenshots</summary>
+
+#### Monthly Cost & Model Distribution
+![Monthly and Model](assets/dashboard-monthly.jpg)
+
+#### Monthly Tokens & Cost by Token Type
+![Token Types](assets/dashboard-models.jpg)
+
+#### Project Usage Ranking
+![Project Ranking](assets/dashboard-projects.jpg)
+
+</details>
 
 ### Quick terminal check
 

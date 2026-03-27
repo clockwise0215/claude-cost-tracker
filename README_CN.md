@@ -6,6 +6,8 @@
 
 Claude Code 的 `/cost` 只显示当前会话的消耗——关掉窗口数据就没了。**Claude Cost Tracker** 自动记录所有会话和项目的 token 用量，生成可视化看板，让你全局掌控。
 
+![看板总览](assets/dashboard-overview.jpg)
+
 ## 为什么需要它？
 
 - 你用着 Claude Max / API，想知道 **真实的使用情况**
@@ -58,6 +60,20 @@ python install.py        # macOS/Linux 也可用 python3
 | **模型分布** | 环形图 — Opus vs Sonnet vs Haiku |
 | **费用类型分布** | 环形图 — 钱花在哪种 token 上 |
 | **项目排行** | 按费用排序的表格，含会话数 |
+
+<details>
+<summary>更多看板截图</summary>
+
+#### 月度费用 & 模型分布
+![月度和模型](assets/dashboard-monthly.jpg)
+
+#### 月度 Token & 费用类型分布
+![Token 类型](assets/dashboard-models.jpg)
+
+#### 项目消耗排行
+![项目排行](assets/dashboard-projects.jpg)
+
+</details>
 
 ### 终端快速查看
 
