@@ -30,7 +30,7 @@ Claude Code's `/cost` only shows the current session — once you close the wind
 ## Quick Start
 
 ```bash
-git clone https://github.com/user/claude-cost-tracker.git
+git clone https://github.com/clockwise0215/claude-cost-tracker.git
 cd claude-cost-tracker
 python install.py        # or python3 on macOS/Linux
 ```
